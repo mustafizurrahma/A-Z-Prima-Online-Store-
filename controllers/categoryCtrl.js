@@ -19,6 +19,7 @@ const categoryCtrl = {
             const newCategory = new Category({name})
             await newCategory.save()
             res.json({msg: "Create Category"})
+            
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
