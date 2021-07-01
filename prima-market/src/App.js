@@ -1,14 +1,21 @@
 import React from 'react';
-import './App.css';
-const App = () => {
+import {BrowserRouter as Router} from 'react-router-dom'
+import {DataProvider} from './GlobalState'
+import Header from './components/headers/Header'
+import MainPages from './components/mainpages/Pages'
+
+
+function App() {
   return (
-    <div>
-      <>
-      <h2>Md Mustafuzr Rahman</h2>
-    </>
-    </div>
+    <DataProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <MainPages />
+        </div>
+      </Router>
+    </DataProvider>
   );
-};
+}
 
 export default App;
-
