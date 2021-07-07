@@ -4,8 +4,8 @@ import axios from 'axios'
 function UserAPI(token) {
     const [isLogged, setIsLogged] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
-    const [cart, setCart] = useState([])
-    const [history, setHistory] = useState([])
+    // const [cart, setCart] = useState([])
+    // const [history, setHistory] = useState([])
 
     useEffect(() =>{
         if(token){
@@ -18,7 +18,7 @@ function UserAPI(token) {
                     setIsLogged(true)
                     res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
 
-                    setCart(res.data.cart)
+                    // setCart(res.data.cart)
 
                 } catch (err) {
                     alert(err.response.data.msg)
@@ -32,31 +32,31 @@ function UserAPI(token) {
 
     
 
-    const addCart = async (product) => {
-        if(!isLogged) return alert("Please login to continue buying")
+    // const addCart = async (product) => {
+    //     if(!isLogged) return alert("Please login to continue buying")
 
-        const check = cart.every(item =>{
-            return item._id !== product._id
-        })
+    //     const check = cart.every(item =>{
+    //         return item._id !== product._id
+    //     })
 
-        if(check){
-            setCart([...cart, {...product, quantity: 1}])
+    //     if(check){
+    //         setCart([...cart, {...product, quantity: 1}])
 
-            await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
-                headers: {Authorization: token}
-            })
+    //         await axios.patch('/user/addcart', {cart: [...cart, {...product, quantity: 1}]}, {
+    //             headers: {Authorization: token}
+    //         })
 
-        }else{
-            alert("This product has been added to cart.")
-        }
-    }
-
+    //     }else{
+    //         alert("This product has been added to cart.")
+    //     }
+    // }
+ 
     return {
         isLogged: [isLogged, setIsLogged],
         isAdmin: [isAdmin, setIsAdmin],
-        cart: [cart, setCart],
-        addCart: addCart,
-        history: [history, setHistory]
+        // cart: [cart, setCart],
+        // addCart: addCart,
+        // history: [history, setHistory]
     }
 }
 

@@ -43,3 +43,15 @@
     /* -------------Login Register -------------- */
   
     @import url("./components/mainpages/auth/auth.css");
+
+    /* -------------Product Page-------------- */
+  
+    @import url("./components/mainpages/products/products.css");
+
+    /* -------------Product Item Page-------------- */
+  
+     @import url("./components/mainpages/utils/productItem/productItem.css");
+
+    /* -------------Product Item Page-------------- */
+  
+    @import url("./components/mainpages/detailProduct/detailProduct.css");
